@@ -24,7 +24,8 @@ services:
 
   crowd.security.authentication.listener:
     class:  AsaAyers\CrowdBundle\Security\Firewall\CrowdListener
-    arguments: [@security.context, @security.authentication.manager]
+    parent: security.authentication.listener.abstract
+    abstract: true
 
   security.user.provider.concrete.crowd:
     class: AsaAyers\CrowdBundle\Security\User\Provider\CrowdProvider

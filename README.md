@@ -8,8 +8,8 @@ Features
 Authors
 =======
 
-Original Author AsaAyers (https://bitbucket.org/AsaAyers/crowdbundle/)
-Heavly modified and pushed to github by smurfy
+- Original Author AsaAyers (https://bitbucket.org/AsaAyers/crowdbundle/)
+- Heavily modified and pushed to github by smurfy
 
 Installation
 =============
@@ -183,8 +183,8 @@ Create a new UserProvider
     }
 
 Configure your Services
-
 ------------------------
+
     services:
         my.crowd.user:
             class: Acme\MyBundle\Security\User\Provider\CrowdUserProvider

@@ -1,0 +1,31 @@
+parameters:
+  crowd_remote_address: 10.20.96.15
+
+services:
+  crowd:
+    class: Services_Atlassian_Crowd
+    file: 'Services/Atlassian/Crowd.php'
+    arguments:
+      -:
+        app_name: %crowd_application_user%
+        app_credential: %crowd_application_password%
+        service_url: %crowd_wsdl%
+    calls:
+      - [ "authenticateApplication", [] ]
+
+
+  crowd.security.authentication.provider:
+    class:  AsaAyers\CrowdBundle\Security\Authentication\Provider\CrowdProvider
+    arguments: ['', @crowd, %crowd_remote_address% ]
+
+  sso.security.authentication.listener:
+    class:  AsaAyers\CrowdBundle\Security\Firewall\SsoListener
+    arguments: [@security.context, @security.authentication.manager]
+
+  crowd.security.authentication.listener:
+    class:  AsaAyers\CrowdBundle\Security\Firewall\CrowdListener
+    arguments: [@security.context, @security.authentication.manager]
+
+  security.user.provider.concrete.crowd:
+    class: AsaAyers\CrowdBundle\Security\User\Provider\CrowdProvider
+    arguments: [ @crowd ]

@@ -1,0 +1,21 @@
+setup:
+
+install http://pear.php.net/package/Services_Atlassian_Crowd
+
+Configure your parameters. You will need crowd_wsdl, crowd_application_user, and crowd_application_password. I added them to my parameters.ini. The crowd_wsdl will look something like "https://crowd.example.com/crowd/services/SecurityServer?wsdl".
+
+Configure your firewall.
+security:
+    providers:
+        crowd: ~
+        # All of a user's Crowd groups will become ROLE_${group_name} with spaces and dashes converted to underscores.
+        # crowd-administorators becomes ROLE_CROWD_ADMINISTRATORS
+    firewalls:
+        secured_area:
+            crowd_sso: true
+            crowd: true
+            logout:
+                delete_cookies:
+                    crowd.token_key: { path: /, domain: example.com }
+
+With the above configuration if crowd and your symfony site are both hosted at subdomains under example.com, logging into either one will log you into the other.

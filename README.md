@@ -22,7 +22,7 @@ Add the following lines in your ``deps`` file
 
     [AsaAyersCrowdBundle]
         git=git://github.com/smurfy/AsaAyersCrowdBundle.git
-        target=bundles/AsaAyers/AsaAyersCrowdBundle
+        target=bundles/AsaAyers/CrowdBundle
 
     [AtlassianServicesCrowd]
         git=git://github.com/smurfy/AtlassianServicesCrowd.git

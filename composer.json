@@ -10,6 +10,6 @@
     "autoload": {
         "psr-0": { "AsaAyers\\CrowdBundle": "" }
     },
-    "target-dir": "Smurfy/AsaAyersCrowdBundle"
+    "target-dir": "AsaAyers/CrowdBundle"
 }
 

@@ -4,7 +4,6 @@ parameters:
 services:
   crowd:
     class: Services_Atlassian_Crowd
-    file: 'Services/Atlassian/Crowd.php'
     arguments:
       -:
         app_name: %crowd_application_user%

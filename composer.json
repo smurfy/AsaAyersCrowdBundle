@@ -8,7 +8,7 @@
         "smurfy/atlassian-services-crowd": "1.0"
     },
     "autoload": {
-        "psr-0": { "AsaAyersCrowdBundle": "" }
+        "psr-0": { "AsaAyers\\CrowdBundle": "" }
     },
     "target-dir": "Smurfy/AsaAyersCrowdBundle"
 }
